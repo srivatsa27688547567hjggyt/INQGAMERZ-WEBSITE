@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>INQ Gamerz | Videos</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0e0e0e;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #00bfff;
+      font-size: 2.5rem;
+    }
+    .tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 20px;
+    }
+    .tab {
+      background: #1a1a1a;
+      border: 2px solid #00bfff;
+      padding: 10px 20px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .tab:hover, .tab.active {
+      background: #00bfff;
+      color: #0e0e0e;
+    }
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .video-card {
+      background-color: #1a1a1a;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+      transform: scale(1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .video-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.8);
+    }
+    .video-card iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+    }
+    .video-info {
+      padding: 15px;
+    }
+    .video-info h3 {
+      margin: 0;
+      font-size: 18px;
+      color: #00bfff;
+    }
+    .tab-content {
+      display: none;
+    }
+    .tab-content.active {
+      display: grid;
+    }
+    .channel-button {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0 auto;
+      padding: 15px 30px;
+      background-color: #ff0000;
+      color: #fff;
+      font-size: 1.2em;
+      font-weight: bold;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+    .channel-button:hover {
+      background-color: #cc0000;
+    }
+    .navbar {
+  background-color: #1a1a1a;
+  padding: 10px 20px;
+  box-shadow: 0 2px 10px rgba(0, 191, 255, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #00bfff;
+}
+.nav-links a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+.nav-links a:hover, .nav-links a.active-link {
+  color: #00bfff;
+}
+
+  </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+          <div class="logo">INQ Gamerz</div>
+          <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="videos.html" class="active-link">Videos</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </div>
+        </div>
+      </nav>
+      
+  <div class="container">
+    <h1>🎮 INQ Gamerz Videos & Live Streams</h1>
+
+    <div class="tabs">
+      <div class="tab active" onclick="switchTab('videos')">Videos</div>
+      <div class="tab" onclick="switchTab('lives')">Live Streams</div>
+    </div>
+
+    <!-- Videos Section -->
+    <div id="videos" class="video-grid tab-content active">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/WUXjGH02PhM?si=zNZLbBd4xwMFP305" allowfullscreen></iframe>
+        <div class="video-info">
+          <h3>Exploring the Nether Dimension</h3>
+        </div>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/yE4y3zce5KQ?si=hRsDtJdOUJwOJY0F" allowfullscreen></iframe>
+        <div class="video-info">
+          <h3>Survival Minecraft World</h3>
+        </div>
+      </div>
+      <!-- More videos can be added here -->
+    </div>
+
+    <!-- Live Streams Section -->
+    <div id="lives" class="video-grid tab-content">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/aFp7vfzNUqI?si=k-svHyayQSP0sXBF" allowfullscreen></iframe>
+        <div class="video-info">
+          <h3>Building Portfolio Website (LIVE)</h3>
+        </div>
+      </div>
+      <!-- More lives can be added here -->
+    </div>
+
+    <!-- Visit Channel Button -->
+    <a href="https://www.youtube.com/@inqgamerz" target="_blank" class="channel-button">
+      🎥 Visit My YouTube Channel
+    </a>
+
+  </div>
+
+  <script>
+    function switchTab(tabName) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+      
+      tabs.forEach(tab => tab.classList.remove('active'));
+      contents.forEach(content => content.classList.remove('active'));
+
+      document.querySelector(`.tab[onclick*="${tabName}"]`).classList.add('active');
+      document.getElementById(tabName).classList.add('active');
+    }
+  </script>
+
+</body>
+</html>
